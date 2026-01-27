@@ -1,0 +1,1510 @@
+/* ფერები */
+:root {
+    --bg: #fff5fa;
+    --bg2: #ffffff;
+    --surface: rgba(255, 255, 255, 0.86);
+    --surface-solid: #ffffff;
+    --soft: rgba(255, 216, 235, 0.35);
+
+    --text: #20161c;
+    --muted: #6e5562;
+    --border: rgba(232, 186, 208, 0.65);
+
+    --pink: #ff3e9e;
+    --pink2: #ffd6ea;
+    --pink3: #ffd6ea;
+    --berry: #ffd6ea;
+    --section-dividers: #541535;
+
+    --radius: 22px;
+    --shadow: 0 18px 40px rgba(122, 29, 74, 0.10);
+    --max: 1120px;
+    --border: rgba(43, 27, 35, 0.12);
+    --shadownight: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+}
+
+/* Base */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 15% 10%, rgba(255, 62, 158, 0.14), transparent 45%),
+        radial-gradient(circle at 90% 0%, rgba(255, 119, 187, 0.18), transparent 40%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+    line-height: 1.5;
+    overflow-x: hidden;
+    /* ჰორიზონტალურად რომ არ გასქროლოს მაგისთვის */
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(var(--max), 100% - 32px);
+    margin: 0 auto;
+}
+
+img,
+svg,
+video,
+picture {
+    filter: none !important;
+}
+
+/* night mode */
+
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.soft,
+.panel,
+.card {
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+p {
+    color: var(--text);
+}
+
+body.dark {
+    --bg: #0f0b0e;
+    --surface: #181116;
+    --text: #000000;
+    --muted: #d1b8c6;
+    --border: rgba(247, 233, 241, 0.14);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Toggle button */
+
+.night-mode {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit;
+    line-height: 1;
+}
+
+.night-mode:hover {
+    filter: brightness(0.98);
+}
+
+body.dark .night-mode:hover {
+    filter: brightness(1.07);
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 245, 250, 0.75);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.cont-header-shida {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 0;
+    flex-wrap: wrap;
+    width: min(var(--max), 100% - 32px);
+    margin: 0 auto;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 38px;
+    height: 38px;
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), transparent 60%),
+        linear-gradient(135deg, var(--pink), var(--pink2));
+    box-shadow: 0 16px 30px rgba(255, 62, 158, 0.22);
+}
+
+.brand-name {
+    font-weight: 900;
+    letter-spacing: 0.2px;
+}
+
+.brand-tag {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+/* ნავიგაცია */
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    padding: 8px 10px;
+    border-radius: 999px;
+    font-weight: 800;
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    background: rgba(255, 214, 234, 0.55);
+    border-color: var(--border);
+}
+
+.nav-button {
+    background: linear-gradient(135deg, var(--pink), var(--pink2));
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 14px 28px rgba(255, 62, 158, 0.18);
+}
+
+.nav-button:hover {
+    filter: brightness(1.03);
+}
+
+/* სექცია 1 ჰიროუუუ */
+.hero {
+    padding: 52px 0 18px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 16px;
+    /* align-items: stretch; */
+}
+
+.hero-2 {
+    border-radius: var(--radius);
+    padding: 26px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-2::before {
+    content: "";
+    position: absolute;
+    inset: -80px -40px auto auto;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255, 62, 158, 0.20), transparent 60%);
+    transform: rotate(15deg);
+}
+
+h1 {
+    margin: 14px 0 10px;
+    font-size: clamp(30px, 4.6vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 1;
+}
+
+.lead {
+    margin: 0 0 18px;
+    color: var(--muted);
+    max-width: 64ch;
+    position: relative;
+    z-index: 1;
+}
+
+/* Buttons */
+.btn {
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.85);
+    padding: 12px 14px;
+    border-radius: 14px;
+    font-weight: 900;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    background: rgba(255, 214, 234, 0.35);
+}
+
+/* Sections */
+.section {
+    padding: 34px 0;
+}
+
+.section-soft {
+    background: rgba(255, 214, 234, 0.22);
+    border-top: 1px solid rgba(232, 186, 208, 0.35);
+    border-bottom: 1px solid rgba(232, 186, 208, 0.35);
+}
+
+.section-head,
+.story-card {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    border: var(--section-dividers) solid;
+    background-color: var(--pink3);
+    border-radius: 5mm;
+    padding-left: 3mm;
+}
+
+.story-side {
+    width: min(var(--max), 100% - 32px);
+    margin: 0 auto 14px;
+    display: flex;
+    gap: 12px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Filters */
+.filters {
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.80);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    padding: 14px;
+    padding-right: 5px !important;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr 1fr 1fr 1.1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+}
+
+label,
+legend {
+    font-weight: 950;
+    font-size: 13px;
+    color: #2a1723;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--text);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    padding: 9px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255, 214, 234, 0.30);
+    font-weight: 900;
+    font-size: 13px;
+}
+
+.chip input {
+    width: auto;
+}
+
+/* პროდუქტები შოპში და ინდექსში */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.product-img {
+    height: 160px;
+    background:
+        radial-gradient(circle at 25% 30%, rgba(255, 62, 158, 0.18), transparent 60%),
+        radial-gradient(circle at 70% 10%, rgba(255, 119, 187, 0.22), transparent 55%),
+        linear-gradient(135deg, rgba(255, 214, 234, 0.75), rgba(255, 255, 255, 0.4));
+}
+
+.product-img.alt {
+    background:
+        radial-gradient(circle at 25% 30%, rgba(255, 119, 187, 0.20), transparent 60%),
+        radial-gradient(circle at 70% 10%, rgba(255, 62, 158, 0.18), transparent 55%),
+        linear-gradient(135deg, rgba(255, 214, 234, 0.55), rgba(255, 255, 255, 0.5));
+}
+
+.product-body {
+    padding: 14px;
+    display: grid;
+    gap: 8px;
+}
+
+.product-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.product-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 950;
+}
+
+.price {
+    font-weight: 950;
+    color: var(--berry);
+}
+
+.product-meta {
+    margin: 0;
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.product-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Panels */
+.panel {
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px;
+    min-width: 0;
+}
+
+.faq details {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    background: rgba(255, 214, 234, 0.25);
+    border-radius: 16px;
+    padding: 10px 12px;
+}
+
+.faq summary {
+    cursor: pointer;
+    font-weight: 950;
+}
+
+.faq p {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+/* Manage */
+.manage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.field-wide {
+    grid-column: 1 / -1;
+}
+
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 950;
+}
+
+.checkbox input {
+    width: auto;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.help {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.manage-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.manage-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: rgba(255, 214, 234, 0.25);
+}
+
+.mini-muted {
+    margin-top: 4px;
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.mini-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Pager */
+.pager {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pager-text {
+    font-weight: 950;
+    color: var(--berry);
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid rgba(232, 186, 208, 0.35);
+    background: rgba(255, 214, 234, 0.18);
+    padding: 18px 0 26px;
+}
+
+.footer-inner {
+    display: grid;
+    gap: 6px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.footer-note {
+    font-size: 13px;
+}
+
+/* --- 5 რენდომ პროდუქტის სქროლბარი --- */
+.hscroll-wrap {
+    position: relative;
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.hscroll {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 240px;
+    gap: 12px;
+    width: calc((240px * 4) + (12px * 2));
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+}
+
+.hscroll::-webkit-scrollbar {
+    height: 10px;
+}
+
+.hscroll::-webkit-scrollbar-track {
+    background: transparent
+}
+
+.hscroll::-webkit-scrollbar-thumb {
+    background: var(--muted);
+    border-radius: 999px;
+    border-radius: 999px;
+}
+
+
+/* arrows */
+.hscroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 36px;
+    border-radius: 999px;
+    border: 0;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.hscroll-btn.left {
+    left: 6px;
+}
+
+.hscroll-btn.right {
+    right: 6px;
+}
+
+.hscroll-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+/*palette home page*/
+.mini-palettes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.mini-palette {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    padding: 14px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: inherit;
+
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    transition: transform .12s ease;
+}
+
+.mini-palette:hover {
+    transform: translateY(-2px);
+}
+
+.mini-swatches {
+    display: grid;
+    grid-template-columns: repeat(3, 18px);
+    grid-template-rows: repeat(1, 42px);
+    gap: 8px;
+}
+
+.mini-swatch {
+    width: 18px;
+    height: 42px;
+    border-radius: 999px;
+    background: var(--c);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.mini-text h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.mini-text p {
+    margin: 4px 0 0;
+    opacity: .8;
+    font-size: .92rem;
+}
+
+@media (max-width: 900px) {
+    .mini-palettes {
+        grid-template-columns: 1fr;
+    }
+
+    .mini-swatches {
+        grid-template-columns: repeat(3, 20px);
+    }
+
+    .mini-swatch {
+        width: 20px;
+    }
+}
+
+/* 6 ფერი რომ მაქვს გამოტანილი colors ზე */
+.palette-gallery {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.swatch-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 100px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    text-align: left;
+    display: grid;
+    gap: 10px;
+    transition: transform .12s ease;
+}
+
+.swatch-card:hover {
+    transform: translateY(-2px);
+}
+
+.chip {
+    width: 100%;
+    height: 68px;
+    border-radius: 14px;
+    background: var(--c);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.c-name {
+    font-weight: 600;
+}
+
+/* Suggestion area */
+.shade-suggest {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.shade-head h3 {
+    margin: 0;
+}
+
+.shade-sub {
+    margin: 6px 0 0;
+    opacity: .8;
+}
+
+.shade-row {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.shade-box {
+    border-radius: 16px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    display: grid;
+    gap: 10px;
+}
+
+.shade-chip {
+    width: 100%;
+    height: 70px;
+    border-radius: 14px;
+    background: var(--c);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.shade-label {
+    opacity: .8;
+    font-size: .92rem;
+}
+
+@media (max-width: 900px) {
+    .palette-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .shade-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.any-color {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.any-color-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.any-color-title {
+    margin: 0;
+}
+
+.any-color-sub {
+    margin: 6px 0 0;
+    opacity: .8;
+}
+
+.any-color-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.any-color-input {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.any-color-text {
+    width: 120px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: rgba(255, 255, 255, 0.55);
+    outline: none;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+
+/* Wash & Care video scroll */
+.video-scroll-wrap {
+    margin-top: 16px;
+    overflow-x: auto;
+}
+
+.video-scroll {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(320px, 420px);
+    gap: 16px;
+
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+}
+
+.video-card {
+    scroll-snap-align: start;
+    border-radius: 18px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-title {
+    margin: 10px 0 0;
+    font-size: 1rem;
+}
+
+
+.video-scroll-wrap::-webkit-scrollbar {
+    height: 10px;
+}
+
+.video-scroll-wrap::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+}
+
+
+/* ჰოვერები */
+
+.lead :hover {
+    color: var(--pink);
+}
+
+#hero-title:hover {
+    color: var(--pink);
+}
+
+#shop-title:hover {
+    color: var(--pink);
+
+}
+
+#colors-title:hover {
+    color: var(--pink);
+
+}
+
+#wash-title:hover {
+    color: var(--pink);
+
+}
+
+
+/*მგორავი ძაფი */
+
+.yarn-roll {
+    position: fixed;
+    left: 0;
+    bottom: 24px;
+    width: 100vw;
+    height: 80px;
+    z-index: 9999;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.yarn-ball {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.18));
+    animation: mgoravi 8s linear infinite;
+}
+
+@keyframes mgoravi {
+    from {
+        transform: translateX(-70px) rotate(0deg);
+    }
+
+    to {
+        transform: translateX(calc(100vw + 70px)) rotate(1440deg);
+    }
+}
+
+.yarn-ball.alt {
+    animation-direction: alternate;
+}
+
+/*მგორავი ძაფი ის დასასრული */
+
+.product {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    padding: 10px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.product-media {
+    height: 120px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.65), rgba(255, 240, 245, 0.8));
+}
+
+.product-media img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.product-body {
+    display: grid;
+    gap: 8px;
+}
+
+.product-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.product-title {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.price {
+    font-weight: 600;
+    color: var(--section-dividers);
+}
+
+.product-meta {
+    margin: 0;
+    opacity: .75;
+    font-size: .9rem;
+}
+
+.product-desc {
+    margin: 4px 0 0;
+    opacity: .9;
+    font-size: .95rem;
+}
+
+.product-actions {
+    margin-top: auto;
+}
+
+.product-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 10px;
+}
+
+/* მოცურავე ჩხირები */
+.knit-float {
+    position: fixed;
+    right: 17%;
+    bottom: 400px;
+    width: 190px;
+    height: 150px;
+    z-index: 9999;
+    pointer-events: none;
+    /* რომ დააკლიკავ არ დაგიბლოკავს  */
+}
+
+@media (max-width: 700px) {
+    .knit-float {
+        display: none;
+    }
+
+}
+
+
+/* ჩხირების დივი */
+.knit-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* border-radius: 18px; */
+    /* background: rgba(255, 255, 255, 0.70); */
+    /* backdrop-filter: blur(10px); */
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); */
+    overflow: hidden;
+}
+
+.needle-img {
+    position: absolute;
+    inset: 16px 16px auto 16px;
+    height: 95px;
+
+    background-image: url("https://cdn-icons-png.flaticon.com/512/5839/5839931.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* ერთხელ რომ წამოიღოს ჩხირების ფოტო */
+    background-position: center;
+    /* რომ გაცენტროს */
+    animation: knitNeedles 1.2s ease-in-out infinite;
+}
+
+/* ქვემოთ რომ მოძრავი ხაზია
+.xazi {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 34px;
+    height: 16px;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 8px 8px, var(--pink2) 2px, transparent 3px) 0 0 / 16px 16px,
+        radial-gradient(circle at 8px 8px, var(--pink) 2px, transparent 3px) 8px 8px / 16px 16px;
+
+    animation: stitchMove 0.65s linear infinite;
+} */
+
+
+@keyframes knitNeedles {
+    0% {
+        transform: rotate(-10deg) translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: rotate(10deg) translateX(6px) translateY(1px);
+    }
+
+    100% {
+        transform: rotate(-10deg) translateX(0) translateY(0);
+    }
+}
+
+/* @keyframes stitchMove {
+    from {
+        background-position: 0 0, 8px 8px;
+    }
+
+    to {
+        background-position: 16px 0, 24px 8px;
+    }
+} */
+
+@keyframes yarnSway {
+
+    0%,
+    100% {
+        transform: rotate(-6deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-3deg) translateY(-2px);
+    }
+}
+
+
+/* Responsive */
+
+@media (prefers-reduced-motion: reduce) {
+    .yarn-ball {
+        animation: none !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .product {
+        grid-template-columns: 1fr;
+    }
+
+    .product-media img {
+        height: 180px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .needle-img,
+    .stitches,
+    .yarn {
+        animation: none !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .video-scroll {
+        grid-auto-columns: 90%;
+    }
+}
+
+@media (max-width: 980px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .colors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+
+    .manage-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: min(var(--max), 100% - 24px);
+    }
+}
+
+@media (max-width: 640px) {
+    .hscroll {
+        padding: 10px 10px;
+    }
+
+    .hscroll-btn {
+        display: none;
+    }
+}
+
+/* ადმინი */
+.admin-page #manageList {
+    display: grid;
+    gap: 12px;
+}
+
+.admin-page .admin-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 14px;
+
+    padding: 14px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.70);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    align-items: start;
+}
+
+.admin-page .admin-media {
+    width: 140px;
+    height: 120px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: rgba(255, 214, 234, 0.35);
+}
+
+.admin-page .admin-media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.admin-page .admin-body {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+    /* prevents overflow */
+}
+
+.admin-page .admin-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.admin-page .admin-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.admin-page .admin-price {
+    font-weight: 900;
+    color: var(--berry);
+    white-space: nowrap;
+}
+
+.admin-page .admin-meta,
+.admin-page .admin-desc {
+    margin: 0;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.admin-page .admin-meta {
+    font-size: 0.9rem;
+    opacity: .85;
+}
+
+.admin-page .admin-desc {
+    font-size: 0.95rem;
+    opacity: .95;
+}
+
+.admin-page .admin-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+@media (max-width: 700px) {
+    .admin-page .admin-item {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-page .admin-media {
+        width: 100%;
+        height: 180px;
+    }
+}
+
+/* login signup */
+
+.logingrid {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    padding-left: 85%;
+    font-weight: bold;
+
+
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 6px;
+    border-radius: 999px;
+    display: inline-grid;
+    place-items: center;
+    font-size: 12px;
+    font-weight: 900;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: rgba(255, 214, 234, 0.9);
+}
+
+
+
+/* ===============================
+   CART PAGE – BEAUTIFY (CSS ONLY)
+   =============================== */
+
+/* Page spacing */
+main.section {
+    background: #fff6fb;
+    min-height: calc(100vh - 80px);
+}
+
+main.section .container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Title */
+main.section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #3a1d2d;
+}
+
+#summary {
+    color: #8a5b73;
+    margin-bottom: 24px;
+}
+
+/* Cart layout */
+#cartList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Cart item card */
+#cartList>div {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 16px;
+    align-items: center;
+
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px 20px;
+
+    box-shadow: 0 8px 20px rgba(219, 140, 175, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#cartList>div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(219, 140, 175, 0.25);
+}
+
+/* Product image */
+#cartList img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #fde7f1;
+}
+
+/* Product text */
+#cartList h4 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3a1d2d;
+}
+
+#cartList p {
+    margin: 2px 0;
+    font-size: 0.9rem;
+    color: #6f4a5d;
+}
+
+/* Remove / quantity buttons */
+#cartList button {
+    background: none;
+    border: none;
+    color: #d36b9c;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+#cartList button:hover {
+    background: #fde7f1;
+}
+
+/* Divider */
+main.section hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e7b2c9, transparent);
+}
+
+/* Total */
+#cartTotal {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #3a1d2d;
+    margin: 16px 0 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Payment area */
+main.section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: #6f4a5d;
+}
+
+/* Pay button */
+#payBtn {
+    width: 100%;
+    max-width: 320px;
+    padding: 14px 20px;
+
+    background: linear-gradient(135deg, #f7a8c8, #e37aa9);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(227, 122, 169, 0.4);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#payBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(227, 122, 169, 0.55);
+}
+
+#payBtn:active {
+    transform: translateY(0);
+}
+
+#cartList:empty::before {
+    content: "Your cart is empty 🧶";
+    display: block;
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 1.1rem;
+    color: #9a6b82;
+}
+
+@media (max-width: 640px) {
+    #cartList>div {
+        grid-template-columns: 70px 1fr;
+        gap: 12px;
+    }
+
+    #cartList img {
+        width: 70px;
+        height: 70px;
+    }
+
+    #cartTotal {
+        font-size: 1.2rem;
+    }
+}
