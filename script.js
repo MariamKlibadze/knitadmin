@@ -75,33 +75,6 @@ function renderProducts(list) {
     productGrid.innerHTML = safe.map(productCardHTML).join("");
 }
 
-function applyFilters(list = []) {
-    if (!Array.isArray(list)) list = [];
-    const q = (searchInput?.value ?? "").trim().toLowerCase(); //თუ სერჩში რამე წერია წამოიღე (value) დატრიმე და დაალოუერქეისე 
-    // თუ არადა დაწერე ""
-    const cat = categorySelect?.value ?? "";
-    const stock = getStockRadioValue(); //  ამას მნიშველობა ზემოთ მივანიჭე "" ეს ნიშნავს All-   ს, in, out
-
-    let out = list;
-
-    if (q) {
-        out = out.filter(x =>
-            x.title.toLowerCase().includes(q) ||
-            x.description.toLowerCase().includes(q)
-        );
-    }
-
-    //Q უნდა იყოს დესქრიფშენში ან თაითლში
-
-    if (cat) out = out.filter(x => x.category === cat);
-    if (stock === "in") out = out.filter(x => x.inStock === true);
-    if (stock === "out") out = out.filter(x => x.inStock === false);
-    const sort = sortSelect?.value ?? "new"; // თუ სორტი არაა მონიშნული წამოიღებს newest ს ანუ API ში როგორც მაქვს ჩამონათვალი ეგრე
-    if (sort === "price-asc") out = [...out].sort((a, b) => a.price - b.price);
-    if (sort === "price-desc") out = [...out].sort((a, b) => b.price - a.price);
-
-    return out;
-}
 
 function cleanedhtml(str) {
     return String(str ?? "")
@@ -272,9 +245,9 @@ async function handleCreate() {
 }
 
 async function handleUpdate() {
-    if (!selectedId) return alert("Select Edit on an item first.");
+    if (!selectedId) return alert("Select Edit on an item first."); // თუ ისე დავასეივებ რომ არ მექნეა არაფერი შეყვანილი ან მონიშნული მაშინ აგდებს ამ ალერტს
     const payload = readFormData();
-    if (!payload.title) return alert("Title is required.");
+    if (!payload.title) return alert("Title is required."); // თაითლი არის სავალდებულო
 
     try {
         const updated = await apiUpdate(selectedId, payload);
@@ -288,7 +261,7 @@ async function handleUpdate() {
 
 async function handleDeleteById(id) {
     if (!id) return;
-    if (!confirm("Delete this item?")) return;
+    if (!confirm("Delete this item?")) return; // წაშლისას მეკითხება დარწმუნებული ვარ თუარა
 
     try {
         await apiDelete(id);
@@ -299,14 +272,16 @@ async function handleDeleteById(id) {
         console.error(err);
         alert("Delete failed.");
     }
-}
+} // ეს ფუნქცია API ში ეძებს და აბრუნებს მნიშვნელობას. რამეს თუ წავშლი ეს ფუნქცია უზრუნველყოფს რომ API შიც შეიცვალოს. 
+// მარტო ასიქრონულით ვერ გამოვიტან მნიშვნელობას UI ზე. ქვემოთა ფორმულაც საჭიროა
 
 function handleEditById(id) {
     const item = items.find((x) => x.id === id);
     if (!item) return;
     selectedId = id;
     setFormData(item);
-}
+} //ეს ფუნქცია API ში არ ცვლის არაფერს მხოლოდ ლოკალზე ეძებს და ამატებს
+
 
 function wireAdminClicks() {
     document.addEventListener("click", (e) => {

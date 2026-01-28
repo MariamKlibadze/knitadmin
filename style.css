@@ -66,10 +66,10 @@ picture {
 
 /* night mode */
 
-body {
+/* body {
     background: var(--bg);
     color: var(--text);
-}
+} */
 
 .soft,
 .panel,
@@ -356,26 +356,95 @@ textarea {
 }
 
 /* პროდუქტები შოპში და ინდექსში */
+
+
+.product {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    padding: 10px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.product-media {
+    height: 120px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.65), rgba(255, 240, 245, 0.8));
+}
+
+.product-media img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* .product-body {
+    display: grid;
+    gap: 8px;
+} */
+
+/* .product-title {
+    margin: 0;
+    font-size: 1.05rem;
+} */
+
+/* .price {
+    font-weight: 600;
+    color: var(--section-dividers);
+} */
+
+/* .product-meta {
+    margin: 0;
+    opacity: .75;
+    font-size: .9rem;
+} */
+
+.product-desc {
+    margin: 4px 0 0;
+    opacity: .9;
+    font-size: .95rem;
+}
+
+/* .product-actions {
+    margin-top: auto;
+} */
+
+.product-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 10px;
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
 }
 
-.product-img {
+/* .product-img {
     height: 160px;
     background:
         radial-gradient(circle at 25% 30%, rgba(255, 62, 158, 0.18), transparent 60%),
         radial-gradient(circle at 70% 10%, rgba(255, 119, 187, 0.22), transparent 55%),
         linear-gradient(135deg, rgba(255, 214, 234, 0.75), rgba(255, 255, 255, 0.4));
-}
+} */
 
-.product-img.alt {
+
+/* .product-img.alt {
     background:
         radial-gradient(circle at 25% 30%, rgba(255, 119, 187, 0.20), transparent 60%),
         radial-gradient(circle at 70% 10%, rgba(255, 62, 158, 0.18), transparent 55%),
         linear-gradient(135deg, rgba(255, 214, 234, 0.55), rgba(255, 255, 255, 0.5));
-}
+} */
 
 .product-body {
     padding: 14px;
@@ -389,6 +458,8 @@ textarea {
     justify-content: space-between;
     gap: 10px;
     flex-wrap: wrap;
+    background-color: #8a5b73;
+    background: #181116;
 }
 
 .product-title {
@@ -534,7 +605,7 @@ textarea {
 /* Footer */
 .footer {
     border-top: 1px solid rgba(232, 186, 208, 0.35);
-    background: rgba(255, 214, 234, 0.18);
+    background: var(--muted) !important;
     padding: 18px 0 26px;
 }
 
@@ -685,15 +756,15 @@ textarea {
 
 /* 6 ფერი რომ მაქვს გამოტანილი colors ზე */
 .palette-gallery {
-    margin-top: 16px;
-    display: grid;
+    /* margin-top: 16px;
+    display: grid; */
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
 }
 
 .swatch-card {
     border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 100px;
+    border-radius: 999px;
     padding: 12px;
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(10px);
@@ -782,7 +853,7 @@ textarea {
 
 .any-color {
     margin-top: 16px;
-    padding: 16px;
+    padding: 0px;
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.55);
     border: 1px solid rgba(255, 255, 255, 0.35);
@@ -793,8 +864,8 @@ textarea {
 .any-color-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    /* justify-content: center; */
+    gap: 5px;
     flex-wrap: wrap;
 }
 
@@ -821,6 +892,11 @@ textarea {
     padding: 0;
     background: transparent;
     cursor: pointer;
+}
+
+#main {
+    width: min(760px, 100% - 32px);
+    margin: 0 auto;
 }
 
 .any-color-text {
@@ -956,78 +1032,6 @@ textarea {
 
 /*მგორავი ძაფი ის დასასრული */
 
-.product {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    gap: 16px;
-    padding: 10px;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-}
-
-.product-media {
-    height: 120px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, rgba(255, 182, 193, 0.65), rgba(255, 240, 245, 0.8));
-}
-
-.product-media img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 14px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.product-body {
-    display: grid;
-    gap: 8px;
-}
-
-.product-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-}
-
-.product-title {
-    margin: 0;
-    font-size: 1.05rem;
-}
-
-.price {
-    font-weight: 600;
-    color: var(--section-dividers);
-}
-
-.product-meta {
-    margin: 0;
-    opacity: .75;
-    font-size: .9rem;
-}
-
-.product-desc {
-    margin: 4px 0 0;
-    opacity: .9;
-    font-size: .95rem;
-}
-
-.product-actions {
-    margin-top: auto;
-}
-
-.product-img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    margin-bottom: 10px;
-}
 
 /* მოცურავე ჩხირები */
 .knit-float {
@@ -1339,9 +1343,7 @@ textarea {
 
 
 
-/* ===============================
-   CART PAGE – BEAUTIFY (CSS ONLY)
-   =============================== */
+/* CART PAGE */
 
 /* Page spacing */
 main.section {
@@ -1349,10 +1351,11 @@ main.section {
     min-height: calc(100vh - 80px);
 }
 
+/* 
 main.section .container {
-    max-width: 1100px;
+    max-width: 100px;
     margin: 0 auto;
-}
+} */
 
 /* Title */
 main.section h2 {
@@ -1380,11 +1383,9 @@ main.section h2 {
     grid-template-columns: 90px 1fr auto;
     gap: 16px;
     align-items: center;
-
     background: #ffffff;
     border-radius: 16px;
     padding: 16px 20px;
-
     box-shadow: 0 8px 20px rgba(219, 140, 175, 0.15);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
