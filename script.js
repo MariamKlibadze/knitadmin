@@ -4,7 +4,7 @@ const API_URL = "https://696fcc0ea06046ce6187e52d.mockapi.io/products";
 // ფასვორდი
 
 // --- Admin prompt gate (CLIENT-SIDE ONLY) ---
-const ADMIN_PASSWORD = "knit123"; // <-- change this
+const ADMIN_PASSWORD = "knit123"; // 
 const ADMIN_KEY = "kb_admin_ok";
 
 // Hide page until verified (prevents flashing admin UI)
